@@ -1,3 +1,6 @@
+//MICHELLE JESÚS OBESO SÁNCHEZ IDS TV
+//unidad 2: ejercicio 4
+
 package ventanaJFrame;
 
 import javax.swing.JFrame;
