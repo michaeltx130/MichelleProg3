@@ -7,6 +7,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -67,7 +68,7 @@ public class Ventana extends JFrame{
 		login_btn.setBounds(100, 330, 180, 30);
 		this.add(login_btn);
 		
-		JLabel recordar = new JLabel("Recuerdame");
+		/*JLabel recordar = new JLabel("Recuerdame");
 		recordar.setFont(new Font("Agency FB", Font.BOLD, 13));
 		recordar.setLocation(70, 410);
 		recordar.setSize(220, 40);
@@ -75,6 +76,12 @@ public class Ventana extends JFrame{
 		
 		JButton confirmar = new JButton("✔");
 		confirmar.setBounds(20, 424, 44, 13);
+		this.add(confirmar);*/
+		
+		JCheckBox confirmar = new JCheckBox("Recuerdame");
+		confirmar.setFont(new Font("Agency FB", Font.BOLD, 13));
+		confirmar.setOpaque(false);
+		confirmar.setBounds(20, 424, 90, 10);
 		this.add(confirmar);
 		
 		
