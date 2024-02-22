@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -45,7 +46,7 @@ public class VentanaRegistro extends JFrame{
 		title.setLocation(115, 10);
 		title.setSize(350, 45);
 		registro.add(title);
-		
+				
 		//Datos generales
 		JLabel nombres = new JLabel("Nombres/s:");
 		nombres.setFont(new Font("Agency FB", Font.BOLD, 18));
@@ -130,12 +131,25 @@ public class VentanaRegistro extends JFrame{
 		grupo2.add(soltero);
 		grupo2.add(casado);
 		
+		JLabel elegir_nacionalidad = new JLabel("Nacionalidad:");
+		elegir_nacionalidad.setFont(new Font("Agency FB", Font.BOLD, 18));
+		elegir_nacionalidad.setLocation(45,365);
+		elegir_nacionalidad.setSize(80, 40);
+		registro.add(elegir_nacionalidad);
+		
+		String paises[] = {"Canadá", "EEUU", "México", "Colombia", "Argentina", "Brasil"};
+		
+		JComboBox nacionalidad = new JComboBox(paises);
+		nacionalidad.setFont(new Font("Agency FB", Font.BOLD, 18));
+		nacionalidad.setLocation(130, 370);
+		nacionalidad.setSize(95, 30);
+		registro.add(nacionalidad);
 		
 		//Area de texto para una presentación descriptiva de si mismo
 		JLabel presentacion = new JLabel("Descríbete:");
 		presentacion.setFont(new Font("Agency FB", Font.BOLD, 18));
 		presentacion.setLocation(350, 170);
-		presentacion.setSize(220, 40);
+		presentacion.setSize(120, 40);
 		registro.add(presentacion);
 		
 		JTextArea bio = new JTextArea(10, 10);
@@ -146,13 +160,14 @@ public class VentanaRegistro extends JFrame{
 		JCheckBox confirmar = new JCheckBox("Acepto términos y condiciones");
 		confirmar.setFont(new Font("Agency FB", Font.BOLD, 13));
 		confirmar.setOpaque(false);
-		confirmar.setLocation(350, 370);
+		confirmar.setLocation(350, 365);
 		confirmar.setSize(180, 40);
 		this.add(confirmar);
 		
 		JButton acceso = new JButton("Registrase");
-		acceso.setLocation(350, 410);
-		acceso.setSize(180, 30);
+		acceso.setFont(new Font("Agency FB", Font.BOLD, 18));
+		acceso.setLocation(350, 400);
+		acceso.setSize(180, 40);
 		registro.add(acceso);
 		
 		this.add(registro);
