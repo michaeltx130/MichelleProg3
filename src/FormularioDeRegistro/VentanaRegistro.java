@@ -14,6 +14,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -31,8 +33,9 @@ public class VentanaRegistro extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.Componentes();
-		this.BarraMenu();
+		//this.Componentes();
+		//this.BarraMenu();
+		this.Admin();
 	}
 	
 	public void Componentes() {
@@ -180,6 +183,7 @@ public class VentanaRegistro extends JFrame{
 	}
 
 	public void BarraMenu() {
+		
 		JMenuBar barra = new JMenuBar();
 		this.setJMenuBar(barra);
 		
@@ -203,5 +207,53 @@ public class VentanaRegistro extends JFrame{
 		barra.add(menu);
 		barra.add(menu2);
 		barra.updateUI();
+	}
+	
+	public void Admin() {
+		JPanel admin = new JPanel();
+		
+		admin.setSize(this.getWidth(), this.getHeight());
+		admin.setLocation(0, 0);
+		admin.setLayout(null);
+		admin.setBackground(Color.decode("#d5a3f5"));
+		add(admin);
+		
+		JLabel widget_titulo = new JLabel("Usuarios", SwingConstants.CENTER);
+		widget_titulo.setFont(new Font("Namecat", Font.BOLD, 30));
+		widget_titulo.setLocation(200, 30);
+		widget_titulo.setSize(150, 40);
+		admin.add(widget_titulo);
+		
+		String titulosTabla[] = {"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"};
+		String datos[][] = {
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},	
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"},
+				{"No. Control", "Nombre", "Apellido", "Correo", "Semestre", "Carrera"}	
+		};
+		
+		JTable tabla = new JTable(datos, titulosTabla);
+		JScrollPane scroll = new JScrollPane(tabla);
+		scroll.setLocation(40, 180);
+		scroll.setSize(500, 200);
+		
+		admin.add(scroll);
+		
 	}
 }
