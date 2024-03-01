@@ -47,6 +47,7 @@ public class CalculadoraLayout extends JFrame {
 		
 		String btn_texts[] = {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "."};   
 		
+		
 		for (int i = 0; i < btn_texts.length; i++) {
 			botones.add(new JButton(btn_texts[i]));
 		}
