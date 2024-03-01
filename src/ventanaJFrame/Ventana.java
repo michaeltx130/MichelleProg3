@@ -6,6 +6,7 @@ package ventanaJFrame;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -36,7 +37,7 @@ public class Ventana extends JFrame{
 		login.setSize(this.getWidth(), this.getHeight());
 		login.setLocation(0, 0);
 		login.setLayout(null);
-		login.setBackground(Color.lightGray);
+		login.setBackground(Color.decode("#a3e4d7"));
 		
 		JLabel title = new JLabel("Inicio de sesión", SwingConstants.CENTER);
 		title.setFont(new Font("Agency FB", Font.BOLD, 40));
@@ -68,16 +69,6 @@ public class Ventana extends JFrame{
 		login_btn.setBounds(100, 330, 180, 30);
 		this.add(login_btn);
 		
-		/*JLabel recordar = new JLabel("Recuerdame");
-		recordar.setFont(new Font("Agency FB", Font.BOLD, 13));
-		recordar.setLocation(70, 410);
-		recordar.setSize(220, 40);
-		login.add(recordar);
-		
-		JButton confirmar = new JButton("✔");
-		confirmar.setBounds(20, 424, 44, 13);
-		this.add(confirmar);*/
-		
 		JCheckBox confirmar = new JCheckBox("Recuerdame");
 		confirmar.setFont(new Font("Agency FB", Font.BOLD, 13));
 		confirmar.setOpaque(false);
@@ -91,6 +82,7 @@ public class Ventana extends JFrame{
 		olvidar.setSize(220, 40);
 		login.add(olvidar);
 		
+
 		this.add(login);
 		this.repaint();
 	}
