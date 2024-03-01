@@ -1,4 +1,4 @@
-package formularioDeRegistro;
+package FormularioDeRegistro;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -33,9 +33,9 @@ public class VentanaRegistro extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.Componentes();
-		this.BarraMenu();
-		//this.Admin();
+		//this.Componentes();
+		//this.BarraMenu();
+		this.Admin();
 	}
 	
 	public void Componentes() {
