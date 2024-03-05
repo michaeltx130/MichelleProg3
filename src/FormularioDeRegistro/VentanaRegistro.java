@@ -1,4 +1,4 @@
-package FormularioDeRegistro;
+package formularioDeRegistro;
 
 import java.awt.Color;
 import java.awt.Font;

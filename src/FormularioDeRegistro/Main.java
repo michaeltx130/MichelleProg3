@@ -1,4 +1,4 @@
-package FormularioDeRegistro;
+package formularioDeRegistro;
 
 public class Main {
 
