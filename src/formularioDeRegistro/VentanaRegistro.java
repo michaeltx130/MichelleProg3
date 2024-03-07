@@ -2,7 +2,14 @@ package formularioDeRegistro;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -27,14 +34,14 @@ public class VentanaRegistro extends JFrame{
 		//Características de la ventana
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(600, 550);
+		this.setSize(950, 600);
 		this.setLocationRelativeTo(null);
 		this.setTitle("Ventana de registro");
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.Componentes();
-		this.BarraMenu();
+		//this.Componentes();
+		//this.BarraMenu();
 		//this.Admin();
 	}
 	
@@ -210,6 +217,7 @@ public class VentanaRegistro extends JFrame{
 	}
 	
 	public void Admin() {
+
 		JPanel admin = new JPanel();
 		
 		admin.setSize(this.getWidth(), this.getHeight());
@@ -256,4 +264,60 @@ public class VentanaRegistro extends JFrame{
 		admin.add(scroll);
 		
 	}
+	
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		
+		Graphics2D g2d = (Graphics2D) g;
+		
+		g2d.drawArc(100, 100, 100, 200, 0, 180);
+		
+		g2d.setColor(Color.red);
+		
+		g2d.drawLine(0, 0, 500, 500);
+		
+		g2d.drawOval(150, 200, 80, 80);
+		
+		g2d.drawOval(390, 180, 80, 80);
+		
+		g2d.setColor(Color.blue);
+		
+		int xS [] = {225, 150, 300, 225};
+		int yS [] = {50, 150, 150, 50};
+		
+		g2d.drawPolygon(xS, yS, 3);
+		
+		g2d.drawRect(300, 300, 200, 150);
+		
+		g2d.drawRoundRect(350, 350, 200, 200, 15, 15);
+		
+		g2d.setFont(new Font("Namecat", Font.BOLD, 80));
+		
+		g2d.drawString("Hola", 350, 140);
+		
+		g2d.fillArc(500, 100, 200, 200, 0, 90);
+		
+		g2d.fillOval(180, 230, 80, 80);
+		
+		int xS2 [] = {255, 150, 330, 225};
+		int yS2 [] = {80, 180, 180, 80};
+		
+		g2d.fillPolygon(xS2, yS2, 4);
+		
+		g2d.setColor(Color.black);
+		
+		g2d.fillRect(600, 300, 300, 100);
+		
+		g2d.clearRect(650, 350, 100, 50);
+		
+		try {
+			BufferedImage imagen = ImageIO.read(new File("avion.png"));
+			
+			g2d.drawImage(imagen, 400, 180, null);
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}	
 }
