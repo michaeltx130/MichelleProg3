@@ -5,6 +5,8 @@ package ventanaJFrame;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -15,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class Ventana extends JFrame{
 	
@@ -67,6 +70,34 @@ public class Ventana extends JFrame{
 		
 		JButton login_btn = new JButton("ACCEDER");
 		login_btn.setBounds(100, 330, 180, 30);
+		
+		//Eventos
+		login_btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("ACCEDER");
+				
+				if(user_field.getText().length() <= 0) {
+					user_field.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					user_field.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				String pwd = new String(pwd_field.getPassword());
+				
+				System.out.println(pwd);
+				if(pwd.length() <= 0) {
+					pwd_field.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					pwd_field.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				System.out.println(user_field.getText());
+				System.out.println(pwd_field.getPassword());
+			}
+		});
+		
 		this.add(login_btn);
 		
 		JCheckBox confirmar = new JCheckBox("Recuerdame");

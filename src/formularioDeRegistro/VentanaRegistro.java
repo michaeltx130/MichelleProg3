@@ -5,6 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -26,6 +28,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class VentanaRegistro extends JFrame{
 	
@@ -34,14 +37,14 @@ public class VentanaRegistro extends JFrame{
 		//Características de la ventana
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(950, 600);
+		this.setSize(590, 550);
 		this.setLocationRelativeTo(null);
 		this.setTitle("Ventana de registro");
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		//this.Componentes();
-		//this.BarraMenu();
+		this.Componentes();
+		this.BarraMenu();
 		//this.Admin();
 	}
 	
@@ -181,8 +184,86 @@ public class VentanaRegistro extends JFrame{
 		
 		JButton acceso = new JButton("Registrase");
 		acceso.setFont(new Font("Agency FB", Font.BOLD, 18));
-		acceso.setLocation(350, 400);
+		acceso.setLocation(350, 410);
 		acceso.setSize(180, 40);
+		
+		//Eventos
+		acceso.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Registrarse");
+				
+				if(nombres_field.getText().length() <= 0) {
+					nombres_field.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					nombres_field.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				if(apellidos_field.getText().length() <= 0) {
+					apellidos_field.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					apellidos_field.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				if(opcion.isSelected() == false && opcion2.isSelected() == false) {
+					opcion.setBorderPainted(true);
+					opcion.setBorder(new LineBorder(Color.RED, 2));
+					
+					opcion2.setBorderPainted(true);
+					opcion2.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					opcion.setBorderPainted(true);
+					opcion.setBorder(new LineBorder(Color.GREEN, 2));
+					
+					opcion2.setBorderPainted(true);
+					opcion2.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				if(edad_field.getText().length() <= 0) {
+					edad_field.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					edad_field.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				if(soltero.isSelected() == false && casado.isSelected() == false) {
+					soltero.setBorderPainted(true);
+					soltero.setBorder(new LineBorder(Color.RED, 2));
+					
+					casado.setBorderPainted(true);
+					casado.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					soltero.setBorderPainted(true);
+					soltero.setBorder(new LineBorder(Color.GREEN, 2));
+					
+					casado.setBorderPainted(true);
+					casado.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				
+				if(bio.getText().length() <= 0) {
+					bio.setBorder(new LineBorder(Color.RED, 2));
+				}else {
+					bio.setBorder(new LineBorder(Color.GREEN, 2));
+				}
+				
+				if(confirmar.isSelected() == false) {
+					confirmar.setBorderPainted(true);
+					confirmar.setBorder(new LineBorder(Color.RED, 2));
+					
+				}else {
+					confirmar.setBorderPainted(true);
+					confirmar.setBorder(new LineBorder(Color.GREEN, 2));
+
+				}
+				
+				System.out.println(nombres_field.getText());
+				System.out.println(apellidos_field.getText());
+				System.out.println(edad_field.getText());
+				System.out.println(bio.getText());
+			}	
+		});
+		
 		registro.add(acceso);
 		
 		this.add(registro);
@@ -265,7 +346,7 @@ public class VentanaRegistro extends JFrame{
 		
 	}
 	
-	@Override
+	/*@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		
@@ -319,5 +400,5 @@ public class VentanaRegistro extends JFrame{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}	
+	}*/
 }
