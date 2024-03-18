@@ -1,4 +1,4 @@
-package ejercicio6;
+package botonesAleatorios;
 
 public class Main {
 
