@@ -22,10 +22,10 @@ public class BotonesAleatorios extends JFrame {
         this.setResizable(false);
         this.setLayout(null);
 
-        this.componentes();
+        this.Componentes();
     }
 
-    public void componentes() {
+    public void Componentes() {
         JPanel panel = new JPanel();
 
         panel.setSize(this.getWidth(), this.getHeight());
