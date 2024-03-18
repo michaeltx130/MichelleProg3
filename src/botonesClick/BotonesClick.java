@@ -52,6 +52,31 @@ public class BotonesClick extends JFrame {
                 panel.add(btnAleatorio);
                 panel.repaint();
 				
+                btnAleatorio.addMouseListener(new MouseListener() {
+
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						panel.remove(btnAleatorio);
+						panel.repaint();	
+					}
+
+					@Override
+					public void mousePressed(MouseEvent e) {	
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+					}
+                	
+                });
 			}
 
 			@Override
