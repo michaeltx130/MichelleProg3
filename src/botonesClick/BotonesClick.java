@@ -2,6 +2,8 @@ package botonesClick;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -93,7 +95,33 @@ public class BotonesClick extends JFrame {
 
 			@Override
 			public void mouseExited(MouseEvent e) {
+				Color randomColor = new Color((int) (Math.random() * 0x1000000));
+				panel.setBackground(randomColor);
+				panel.repaint();	
+			}	
+	    });
+	  
+	    this.addKeyListener(new KeyListener(){
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+	
 			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				 if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+	                    JPanel panel = (JPanel) getContentPane().getComponent(0);
+	                    panel.removeAll();
+	                    panel.repaint();
+	             }
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+	
+			}
+	    	
 	    });
 	    
 	    this.add(panel);
