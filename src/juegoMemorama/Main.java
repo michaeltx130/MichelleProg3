@@ -1,4 +1,4 @@
-package juego;
+package juegoMemorama;
 
 import java.awt.EventQueue;
 
@@ -8,7 +8,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Memorama frame = new Memorama();
+					JuegoMemoria frame = new JuegoMemoria();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

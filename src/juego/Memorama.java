@@ -1,7 +1,5 @@
 package juego;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,7 +19,6 @@ public class Memorama extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-    private int contador = 0;
     
     public Memorama() {
 
@@ -193,32 +190,41 @@ public class Memorama extends JFrame {
         
         JButton btnReiniciar = new JButton("Reiniciar");
         btnReiniciar.setFont(new Font("Segoe UI Black", Font.BOLD, 12));
+        
         btnReiniciar.addActionListener(new ActionListener() {
+        	
             public void actionPerformed(ActionEvent e) {
-                contador = 0;
                 
                 btn1.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+            	btn1.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn1.setEnabled(true);
                 
                 btn2.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn2.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn2.setEnabled(true);
                 
                 btn3.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn3.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn3.setEnabled(true);
                 
                 btn4.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn4.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn4.setEnabled(true);
                 
                 btn5.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn5.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn5.setEnabled(true);
                 
                 btn6.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn6.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn6.setEnabled(true);
                 
                 btn7.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn7.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn7.setEnabled(true);
                 
                 btn8.setIcon(new ImageIcon(imagen.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
+                btn8.setRolloverIcon(new ImageIcon(imagen2.getImage().getScaledInstance(180, 200, Image.SCALE_SMOOTH)));
                 btn8.setEnabled(true);
                 
                 
@@ -226,7 +232,6 @@ public class Memorama extends JFrame {
                
             }
         });
-        panel_2.add(btnReiniciar);
-        
+        panel_2.add(btnReiniciar);  
     }
 }
