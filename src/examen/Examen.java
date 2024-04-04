@@ -252,6 +252,7 @@ public class Examen extends JFrame {
 		contenidoPanel4.add(labelSubTotal);
 		
 		JCheckBox checkBox = new JCheckBox("");
+		checkBox.setBackground(new Color(255, 255, 255));
 		checkBox.setHorizontalAlignment(SwingConstants.CENTER);
 		checkBox.setBounds(157, 32, 29, 23);
 		contenidoPanel4.add(checkBox);

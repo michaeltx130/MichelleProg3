@@ -397,23 +397,26 @@ public class JuegoMemoria extends JFrame {
 	    return true;
 	}
 
-	//compara los pixeles de la imagen
+	// Este método toma una imagen normal y la convierte en una forma que Java puede trabajar más fácilmente con ella. 
 	private BufferedImage imageToBufferedImage(Image img) {
+		// Verifica si la imagen ya es manejable
 	    if (img instanceof BufferedImage) {
-	        return (BufferedImage) img;
+	        return (BufferedImage) img; // Si lo es, la devuelve
 	    }
-
+	    
+	    // Si no es manejable, crea una nueva imagen manejable con las mismas dimensiones
 	    BufferedImage bufferedImage = new BufferedImage(
 	            img.getWidth(null), // Ancho igual al de la Image original
 	            img.getHeight(null), // Altura igual a la de la Image original
 	            BufferedImage.TYPE_INT_ARGB
 	    );
 
-	 // Crea un objeto Graphics2D para dibujar en el BufferedImage
+	    // Dibuja la imagen original en la nueva imagen manejable
 	    Graphics2D bGr = bufferedImage.createGraphics();
-	    bGr.drawImage(img, 0, 0, null);
+	    bGr.drawImage(img, 0, 0, null); // Copia la imagen en la nueva imagen manejable
 	    bGr.dispose();
-
+	    
+	    // Devuelve la nueva imagen manejable
 	    return bufferedImage;
 	}
 }
