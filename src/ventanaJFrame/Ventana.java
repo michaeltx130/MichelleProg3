@@ -1,5 +1,5 @@
 //MICHELLE JESÚS OBESO SÁNCHEZ IDS TV
-//unidad 2: ejercicio 8
+//Cambios para el ejercicio 17
 
 package ventanaJFrame;
 
@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -27,7 +28,7 @@ public class Ventana extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(400, 500);
 		this.setLocationRelativeTo(null);
-		this.setTitle("Mi primera ventana");
+		this.setTitle("Panel de login");
 		this.setResizable(false);
 		this.setLayout(null);
 		
@@ -48,9 +49,9 @@ public class Ventana extends JFrame{
 		title.setSize(220, 40);
 		login.add(title);
 		
-		JLabel user_tag = new JLabel("Correo electrónico:");
+		JLabel user_tag = new JLabel("Usuario:");
 		user_tag.setFont(new Font("Agency FB", Font.BOLD, 18));
-		user_tag.setLocation(130, 100);
+		user_tag.setLocation(100, 100);
 		user_tag.setSize(220, 40);
 		login.add(user_tag);
 		
@@ -60,7 +61,7 @@ public class Ventana extends JFrame{
 		
 		JLabel pwd_tag = new JLabel("Contraseña:");
 		pwd_tag.setFont(new Font("Agency FB", Font.BOLD, 18));
-		pwd_tag.setLocation(150, 200);
+		pwd_tag.setLocation(100, 200);
 		pwd_tag.setSize(180, 30);
 		login.add(pwd_tag);
 		
@@ -76,8 +77,7 @@ public class Ventana extends JFrame{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("ACCEDER");
-				
+			
 				if(user_field.getText().length() <= 0) {
 					user_field.setBorder(new LineBorder(Color.RED, 2));
 				}else {
@@ -86,15 +86,12 @@ public class Ventana extends JFrame{
 				
 				String pwd = new String(pwd_field.getPassword());
 				
-				System.out.println(pwd);
 				if(pwd.length() <= 0) {
 					pwd_field.setBorder(new LineBorder(Color.RED, 2));
 				}else {
 					pwd_field.setBorder(new LineBorder(Color.GREEN, 2));
 				}
-				
-				System.out.println(user_field.getText());
-				System.out.println(pwd_field.getPassword());
+				JOptionPane.showMessageDialog(null, "Error", "Acceder", JOptionPane.ERROR_MESSAGE);;
 			}
 		});
 		
