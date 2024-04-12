@@ -20,8 +20,12 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import panelDeRegistro.PanelDeRegistro;
+
 public class Ventana extends JFrame{
 	
+	private static final long serialVersionUID = 1L;
+
 	public Ventana() {
 		
 		this.setVisible(true);
@@ -32,10 +36,10 @@ public class Ventana extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.loadComponents();
+		Login(this);
 	}
 	
-	public void loadComponents() {
+	public void Login(JFrame frame) {
 		JPanel login = new JPanel();
 		
 		login.setSize(this.getWidth(), this.getHeight());
@@ -51,26 +55,26 @@ public class Ventana extends JFrame{
 		
 		JLabel user_tag = new JLabel("Usuario:");
 		user_tag.setFont(new Font("Agency FB", Font.BOLD, 18));
-		user_tag.setLocation(100, 100);
+		user_tag.setLocation(100, 90);
 		user_tag.setSize(220, 40);
 		login.add(user_tag);
 		
 		JTextField user_field = new JTextField();
-		user_field.setBounds(100, 140, 180, 30);
-		this.add(user_field);
+		user_field.setBounds(100, 130, 180, 30);
+		login.add(user_field);
 		
 		JLabel pwd_tag = new JLabel("Contraseña:");
 		pwd_tag.setFont(new Font("Agency FB", Font.BOLD, 18));
-		pwd_tag.setLocation(100, 200);
+		pwd_tag.setLocation(100, 190);
 		pwd_tag.setSize(180, 30);
 		login.add(pwd_tag);
 		
 		JPasswordField pwd_field = new JPasswordField();
-		pwd_field.setBounds(100, 235, 180, 30);
-		this.add(pwd_field);
+		pwd_field.setBounds(100, 225, 180, 30);
+		login.add(pwd_field);
 		
 		JButton login_btn = new JButton("ACCEDER");
-		login_btn.setBounds(100, 330, 180, 30);
+		login_btn.setBounds(100, 300, 180, 30);
 		
 		//Eventos
 		login_btn.addActionListener(new ActionListener() {
@@ -91,17 +95,42 @@ public class Ventana extends JFrame{
 				}else {
 					pwd_field.setBorder(new LineBorder(Color.GREEN, 2));
 				}
-				JOptionPane.showMessageDialog(null, "Error", "Acceder", JOptionPane.ERROR_MESSAGE);;
+				JOptionPane.showMessageDialog(null, "Error", "Acceder", JOptionPane.ERROR_MESSAGE);
 			}
 		});
 		
-		this.add(login_btn);
+		login.add(login_btn);
+		
+		JLabel o_tag = new JLabel("O");
+		o_tag.setFont(new Font("Agency FB", Font.BOLD, 18));
+		o_tag.setLocation(185, 335);
+		o_tag.setSize(180, 30);
+		login.add(o_tag);
+		
+		JButton irRegistro = new JButton("REGISTRARSE");
+		irRegistro.setBounds(100, 370, 180, 30);
+		
+		irRegistro.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(login);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				PanelDeRegistro vntRegistro = new PanelDeRegistro();
+				Login(vntRegistro);
+			}
+		});
+	
+		login.add(irRegistro);
 		
 		JCheckBox confirmar = new JCheckBox("Recuerdame");
 		confirmar.setFont(new Font("Agency FB", Font.BOLD, 13));
 		confirmar.setOpaque(false);
 		confirmar.setBounds(20, 424, 90, 10);
-		this.add(confirmar);
+		login.add(confirmar);
 		
 		
 		JLabel olvidar = new JLabel("¿Olvidaste tu contraseña?");

@@ -510,18 +510,13 @@ public class Teclado extends JFrame {
 	 
 	 private void Cronometro() {
 		 tiempo = new Timer(1000, (ActionEvent e) -> {
-			 ActualizarTiempo();
+			 segundos++;
 			 ActualizarTimer();
 			
-			 segundos++;
 		 }); 
 		 tiempo.start();
 	 }
-	 
-	 private void ActualizarTiempo() {
-		 segundos++;
-	 }
-	 
+
 	 private void ActualizarTimer() {
 		 String cronometro = segundos + " s ";
 		 timer.setText(cronometro);
