@@ -1,5 +1,4 @@
 //MICHELLE JESÚS OBESO SÁNCHEZ IDS TV
-//Cambios para el ejercicio 17
 
 package ventanaJFrame;
 
@@ -8,11 +7,13 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -21,6 +22,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import panelDeRegistro.PanelDeRegistro;
+import panelDeRegistro.PanelRecuperacion;
 
 public class Ventana extends JFrame{
 	
@@ -30,12 +32,13 @@ public class Ventana extends JFrame{
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(400, 500);
+		this.setSize(400, 520);
 		this.setLocationRelativeTo(null);
 		this.setTitle("Panel de login");
 		this.setResizable(false);
 		this.setLayout(null);
 		
+		BarraMenu(this);
 		Login(this);
 	}
 	
@@ -124,6 +127,7 @@ public class Ventana extends JFrame{
 			}
 		});
 	
+		frame.add(irRegistro);
 		login.add(irRegistro);
 		
 		JCheckBox confirmar = new JCheckBox("Recuerdame");
@@ -142,5 +146,92 @@ public class Ventana extends JFrame{
 
 		this.add(login);
 		this.repaint();
+	}
+	
+	public void BarraMenu(JFrame frame) {
+		
+		JMenuBar barra = new JMenuBar();
+		this.setJMenuBar(barra);
+		
+		JMenu menu = new JMenu("Cuenta");
+		JMenu menu2 = new JMenu("Usuarios");
+		JMenu menu3 = new JMenu("Ayuda");
+		
+		JMenuItem eleccion1 = new JMenuItem("Nueva cuenta");
+		
+		JPanel login = new JPanel();
+		eleccion1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(login);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				PanelDeRegistro vntRegistro = new PanelDeRegistro();
+				Login(vntRegistro);
+			}	
+		});
+		menu.add(eleccion1);
+		
+		JMenuItem eleccion2 = new JMenuItem("Iniciar sesion");
+		
+		JPanel registro = new JPanel();
+		eleccion2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(registro);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				Ventana vntLogin = new Ventana();
+				Registro(vntLogin);
+			}			
+		});
+		menu.add(eleccion2);
+		
+		JMenuItem eleccion3 = new JMenuItem("Recuperación de cuenta");
+		
+		JPanel contentPane = new JPanel();
+		eleccion3.addActionListener(new ActionListener() {
+			private PanelRecuperacion panelRecuperacion;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(contentPane);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				this.panelRecuperacion = new PanelRecuperacion();
+				this.panelRecuperacion.setVisible(true);
+				
+			}
+		});
+		menu.add(eleccion3);
+		
+		JMenuItem opcion1 = new JMenuItem("Alta");
+		menu2.add(opcion1);
+		JMenuItem opcion2 = new JMenuItem("Baja");
+		menu2.add(opcion2);
+		JMenuItem opcion3 = new JMenuItem("Consultar");
+		menu2.add(opcion3);
+		
+		JMenuItem seleccion1 = new JMenuItem("¿Cómo crear un usuario?");
+		menu3.add(seleccion1);
+		JMenuItem seleccion2 = new JMenuItem("¿Cómo acceder al sistema?");
+		menu3.add(seleccion2);
+		JMenuItem seleccion3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		menu3.add(seleccion3);
+		
+		barra.add(menu);
+		barra.add(menu2);
+		barra.add(menu3);
+		barra.updateUI();
+	}
+	
+	public void Registro(Ventana vntLogin) {
+			
 	}
 }

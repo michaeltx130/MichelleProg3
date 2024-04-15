@@ -7,5 +7,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		Ventana vna = new Ventana();
+		vna.setVisible(true);
 	}
 }

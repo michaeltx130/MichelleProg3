@@ -44,7 +44,7 @@ public class PanelDeRegistro extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.BarraMenu();
+		BarraMenu(this);
 		Registro(this);
 		
 	}
@@ -52,8 +52,7 @@ public class PanelDeRegistro extends JFrame{
 	public void Registro(JFrame frame) {
 		//Características del panel
 		JPanel registro = new JPanel();
-		
-						
+				
 		registro.setSize(this.getWidth(), this.getHeight());
 		registro.setLocation(0, 0);
 		registro.setLayout(null);
@@ -95,151 +94,213 @@ public class PanelDeRegistro extends JFrame{
 						
 		ImageIcon imagenEmail = new ImageIcon("email.png");
 		JLabel imgEmail = new JLabel();
-				imgEmail.setLocation(30, 240);
-				imgEmail.setSize(40, 40);
-				imgEmail.setIcon(new ImageIcon(imagenEmail.getImage().getScaledInstance(imgEmail.getWidth(), imgEmail.getHeight(), Image.SCALE_SMOOTH)));
-				registro.add(imgEmail);
+		imgEmail.setLocation(30, 240);
+		imgEmail.setSize(40, 40);
+		imgEmail.setIcon(new ImageIcon(imagenEmail.getImage().getScaledInstance(imgEmail.getWidth(), imgEmail.getHeight(), Image.SCALE_SMOOTH)));
+		registro.add(imgEmail);
 						
-				JLabel correo = new JLabel("Correo electrónico:");
-				correo.setFont(new Font("Agency FB", Font.BOLD, 18));
-				correo.setLocation(100, 210);
-				correo.setSize(220, 40);
-				registro.add(correo);
+		JLabel correo = new JLabel("Correo electrónico:");
+		correo.setFont(new Font("Agency FB", Font.BOLD, 18));
+		correo.setLocation(100, 210);
+		correo.setSize(220, 40);
+		registro.add(correo);
 							
-				JTextField correo_field = new JTextField();
-				correo_field.setBounds(100, 250, 250, 30);
-				registro.add(correo_field);
+		JTextField correo_field = new JTextField();
+		correo_field.setBounds(100, 250, 250, 30);
+		registro.add(correo_field);
 						
-				ImageIcon imagenPassword = new ImageIcon("candado.png");
-				JLabel imgPassword = new JLabel();
-				imgPassword.setLocation(30, 380);
-				imgPassword.setSize(40, 40);
-				imgPassword.setIcon(new ImageIcon(imagenPassword.getImage().getScaledInstance(imgPassword.getWidth(), imgPassword.getHeight(), Image.SCALE_SMOOTH)));
-				registro.add(imgPassword);
+		ImageIcon imagenPassword = new ImageIcon("candado.png");
+		JLabel imgPassword = new JLabel();
+		imgPassword.setLocation(30, 380);
+		imgPassword.setSize(40, 40);
+		imgPassword.setIcon(new ImageIcon(imagenPassword.getImage().getScaledInstance(imgPassword.getWidth(), imgPassword.getHeight(), Image.SCALE_SMOOTH)));
+		registro.add(imgPassword);
 						
-				JLabel pwd = new JLabel("Contraseña:");
-				pwd.setFont(new Font("Agency FB", Font.BOLD, 18));
-				pwd.setLocation(100, 280);
-				pwd.setSize(220, 40);
-				registro.add(pwd);
+		JLabel pwd = new JLabel("Contraseña:");
+		pwd.setFont(new Font("Agency FB", Font.BOLD, 18));
+		pwd.setLocation(100, 280);
+		pwd.setSize(220, 40);
+		registro.add(pwd);
 							
-				pwd_field = new JPasswordField();
-				pwd_field.setBounds(100, 320, 250, 30);
-				registro.add(pwd_field);
+		pwd_field = new JPasswordField();
+		pwd_field.setBounds(100, 320, 250, 30);
+		registro.add(pwd_field);
 						
-				JLabel confirmarPwd = new JLabel("Confimar contraseña:");
-				confirmarPwd.setFont(new Font("Agency FB", Font.BOLD, 18));
-				confirmarPwd.setLocation(100, 350);
-				confirmarPwd.setSize(220, 40);
-				registro.add(confirmarPwd);
+		JLabel confirmarPwd = new JLabel("Confimar contraseña:");
+		confirmarPwd.setFont(new Font("Agency FB", Font.BOLD, 18));
+		confirmarPwd.setLocation(100, 350);
+		confirmarPwd.setSize(220, 40);
+		registro.add(confirmarPwd);
 							
-				confirmar_field = new JPasswordField();
-				confirmar_field.setBounds(100, 390, 250, 30);
-				registro.add(confirmar_field);
+		confirmar_field = new JPasswordField();
+		confirmar_field.setBounds(100, 390, 250, 30);
+		registro.add(confirmar_field);
 						
-				JCheckBox terminos = new JCheckBox("Acepto términos y condiciones");
-				terminos.setFont(new Font("Agency FB", Font.BOLD, 13));
-				terminos.setOpaque(false);
-				terminos.setLocation(20, 460);
-				terminos.setSize(180, 40);
-				registro.add(terminos);
+		JCheckBox terminos = new JCheckBox("Acepto términos y condiciones");
+		terminos.setFont(new Font("Agency FB", Font.BOLD, 13));
+		terminos.setOpaque(false);
+		terminos.setLocation(20, 460);
+		terminos.setSize(180, 40);
+		registro.add(terminos);
 						
-				JButton acceso = new JButton("Registrase");
-				acceso.setFont(new Font("Agency FB", Font.BOLD, 18));
-				acceso.setLocation(230, 460);
-				acceso.setSize(180, 40);
+		JButton acceso = new JButton("Registrase");
+		acceso.setFont(new Font("Agency FB", Font.BOLD, 18));
+		acceso.setLocation(230, 460);
+		acceso.setSize(180, 40);
 						
-				//Eventos
-				acceso.addActionListener(new ActionListener() {
+		//Eventos
+		acceso.addActionListener(new ActionListener() {
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 								
-					String pwd = new String(pwd_field.getPassword());
-					String confirmar = new String(confirmar_field.getPassword());
+			String pwd = new String(pwd_field.getPassword());
+			String confirmar = new String(confirmar_field.getPassword());
 								
-					if(nombres_field.getText().isEmpty() || apellidos_field.getText().isEmpty()
-				                     || correo_field.getText().isEmpty() || pwd.isEmpty() || confirmar.isEmpty() || !terminos.isSelected()) {
+			if(nombres_field.getText().isEmpty() || apellidos_field.getText().isEmpty()
+				                   || correo_field.getText().isEmpty() || pwd.isEmpty() || confirmar.isEmpty() || !terminos.isSelected()) {
 									
-						nombres_field.setBorder(new LineBorder(Color.RED, 2));
-						apellidos_field.setBorder(new LineBorder(Color.RED, 2));
-						correo_field.setBorder(new LineBorder(Color.RED, 2));
-						pwd_field.setBorder(new LineBorder(Color.RED, 2));
-						confirmar_field.setBorder(new LineBorder(Color.RED, 2));
-						terminos.setBorderPainted(true);
-						terminos.setBorder(new LineBorder(Color.RED, 2));
+				nombres_field.setBorder(new LineBorder(Color.RED, 2));
+				apellidos_field.setBorder(new LineBorder(Color.RED, 2));
+				correo_field.setBorder(new LineBorder(Color.RED, 2));
+				pwd_field.setBorder(new LineBorder(Color.RED, 2));
+				confirmar_field.setBorder(new LineBorder(Color.RED, 2));
+				terminos.setBorderPainted(true);
+				terminos.setBorder(new LineBorder(Color.RED, 2));
 									
-						JOptionPane.showMessageDialog(null, "Asegúrese de completar los datos.");
-					}else if(!pwd.equals(confirmar)){
-						pwd_field.setBorder(new LineBorder(Color.YELLOW, 2));
-						confirmar_field.setBorder(new LineBorder(Color.YELLOW, 2));
+				JOptionPane.showMessageDialog(null, "Asegúrese de completar los datos.");
+				
+			}else if(!pwd.equals(confirmar)){
+				pwd_field.setBorder(new LineBorder(Color.YELLOW, 2));
+				confirmar_field.setBorder(new LineBorder(Color.YELLOW, 2));
 									
-						JOptionPane.showMessageDialog(null, "Asegúrese de que las contraseñas coincidan.");
-					}else {
-						nombres_field.setBorder(new LineBorder(Color.GREEN, 2));
-						apellidos_field.setBorder(new LineBorder(Color.GREEN, 2));
-						correo_field.setBorder(new LineBorder(Color.GREEN, 2));
-						pwd_field.setBorder(new LineBorder(Color.GREEN, 2));
-						confirmar_field.setBorder(new LineBorder(Color.GREEN, 2));
-						terminos.setBorderPainted(true);
-						terminos.setBorder(new LineBorder(Color.GREEN, 2));
+				JOptionPane.showMessageDialog(null, "Asegúrese de que las contraseñas coincidan.");
+			}else {
+				nombres_field.setBorder(new LineBorder(Color.GREEN, 2));
+				apellidos_field.setBorder(new LineBorder(Color.GREEN, 2));
+				correo_field.setBorder(new LineBorder(Color.GREEN, 2));
+				pwd_field.setBorder(new LineBorder(Color.GREEN, 2));
+				confirmar_field.setBorder(new LineBorder(Color.GREEN, 2));
+				terminos.setBorderPainted(true);
+				terminos.setBorder(new LineBorder(Color.GREEN, 2));
 									
-				        JOptionPane.showMessageDialog(null, "Te has registrado exitosamente.");
-					}
-				}	
-			});
+				JOptionPane.showMessageDialog(null, "Te has registrado exitosamente.");
+			}
+		}	
+	});
 						
-				registro.add(acceso);
+		registro.add(acceso);
 				
-				JButton irLogin = new JButton("Iniciar Sesion");
-				irLogin.setFont(new Font("Agency FB", Font.BOLD, 18));
-				irLogin.setLocation(230, 520);
-				irLogin.setSize(180, 30);
+		JButton irLogin = new JButton("Iniciar Sesion");
+		irLogin.setFont(new Font("Agency FB", Font.BOLD, 18));
+		irLogin.setLocation(230, 520);
+		irLogin.setSize(180, 30);
 				
-				irLogin.addActionListener(new ActionListener() {
+		irLogin.addActionListener(new ActionListener() {
 
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						frame.getContentPane().remove(registro);
-						frame.getContentPane().repaint();
-						frame.getContentPane().revalidate();
-						dispose();
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			frame.getContentPane().remove(registro);
+			frame.getContentPane().repaint();
+			frame.getContentPane().revalidate();
+			dispose();
 						
-						Ventana vntLogin = new Ventana();
-						Registro(vntLogin);
-					}
-				});
+			Ventana vntLogin = new Ventana();
+			Registro(vntLogin);
+		}
+	});
 				
-				registro.add(irLogin);
+	frame.add(irLogin);
+	registro.add(irLogin);
 						
-				this.add(registro);
-				this.repaint();		
-	}
+	this.add(registro);
+	this.repaint();		
+}
 	
-	public void BarraMenu() {
+	public void BarraMenu(JFrame frame) {
 		
 		JMenuBar barra = new JMenuBar();
 		this.setJMenuBar(barra);
 		
-		JMenu menu = new JMenu("Opciones");
-		JMenu menu2 = new JMenu("Ayuda");
+		JMenu menu = new JMenu("Cuenta");
+		JMenu menu2 = new JMenu("Usuarios");
+		JMenu menu3 = new JMenu("Ayuda");
 		
-		JMenuItem eleccion1 = new JMenuItem("Nuevo cuenta");
+		JMenuItem eleccion1 = new JMenuItem("Nueva cuenta");
+		
+		JPanel login = new JPanel();
+		eleccion1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(login);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				PanelDeRegistro vntRegistro = new PanelDeRegistro();
+				Login(vntRegistro);
+			}	
+		});
 		menu.add(eleccion1);
+		
 		JMenuItem eleccion2 = new JMenuItem("Iniciar sesion");
+		
+		JPanel registro = new JPanel();
+		eleccion2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(registro);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				Ventana vntLogin = new Ventana();
+				Registro(vntLogin);
+			}			
+		});
 		menu.add(eleccion2);
-		JMenuItem eleccion3 = new JMenuItem("Cerrar");
+		
+		JMenuItem eleccion3 = new JMenuItem("Recuperación de cuenta");
+		
+		JPanel contentPane = new JPanel();
+		eleccion3.addActionListener(new ActionListener() {
+			private PanelRecuperacion panelRecuperacion;
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				frame.getContentPane().remove(contentPane);
+				frame.getContentPane().repaint();
+				frame.getContentPane().revalidate();
+				dispose();
+				
+				this.panelRecuperacion = new PanelRecuperacion();
+				this.panelRecuperacion.setVisible(true);
+				
+			}
+		});
 		menu.add(eleccion3);
 		
-		JMenuItem seleccion1 = new JMenuItem("Contactenos");
-		menu2.add(seleccion1);
-		JMenuItem seleccion2 = new JMenuItem("Acerca De");
-		menu2.add(seleccion2);
-		JMenuItem seleccion3 = new JMenuItem("Repotar problema");
-		menu2.add(seleccion3);
+		JMenuItem opcion1 = new JMenuItem("Alta");
+		menu2.add(opcion1);
+		JMenuItem opcion2 = new JMenuItem("Baja");
+		menu2.add(opcion2);
+		JMenuItem opcion3 = new JMenuItem("Consultar");
+		menu2.add(opcion3);
+		
+		JMenuItem seleccion1 = new JMenuItem("¿Cómo crear un usuario?");
+		menu3.add(seleccion1);
+		JMenuItem seleccion2 = new JMenuItem("¿Cómo acceder al sistema?");
+		menu3.add(seleccion2);
+		JMenuItem seleccion3 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		menu3.add(seleccion3);
 		
 		barra.add(menu);
 		barra.add(menu2);
+		barra.add(menu3);
 		barra.updateUI();
+	}
+
+	public void Login(PanelDeRegistro vntRegistro) {
+
 	}
 }
