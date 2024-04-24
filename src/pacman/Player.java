@@ -1,3 +1,5 @@
+//Michelle Jesús Obeso Sánchez IDS TV
+
 package pacman;
 
 import java.awt.Rectangle;

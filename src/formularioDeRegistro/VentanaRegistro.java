@@ -43,8 +43,8 @@ public class VentanaRegistro extends JFrame{
 		this.setResizable(false);
 		this.setLayout(null);
 		
-		this.Componentes();
-		this.BarraMenu();
+		//this.Componentes();
+		//this.BarraMenu();
 		//this.Admin();
 	}
 	
@@ -346,7 +346,7 @@ public class VentanaRegistro extends JFrame{
 		
 	}
 	
-	/*@Override
+	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		
@@ -400,5 +400,5 @@ public class VentanaRegistro extends JFrame{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 }
