@@ -1,3 +1,6 @@
+//Ejercicio 10.- Utilizando de base el ejercicio 8 implementa Mysql
+//MICHELLE OBESO IDS TV
+
 package views7;
 
 import java.awt.Color;
@@ -38,7 +41,6 @@ public class AuthView extends JFrame implements ActionListener{
 		
 		this.Login();
 	}
-
 	
 	public void Login() {
 		JPanel panel1 = new JPanel();
@@ -49,7 +51,7 @@ public class AuthView extends JFrame implements ActionListener{
 		panel1.setBackground(Color.decode("#2b488a"));
 		
 		JLabel titleLogin = new JLabel("User Login", SwingConstants.CENTER);
-		titleLogin.setFont(new Font("Segoe UI Black", Font.ITALIC, 40));
+		titleLogin.setFont(new Font("Segoe UI Black", Font.BOLD, 40));
 		titleLogin.setForeground(Color.decode("#ffffff"));
 		titleLogin.setLocation(200, 20);
 		titleLogin.setSize(300, 60);
@@ -64,14 +66,14 @@ public class AuthView extends JFrame implements ActionListener{
 		this.add(panel2);
 		
 		JLabel titleAccount = new JLabel("My Account", SwingConstants.CENTER);
-		titleAccount.setFont(new Font("Segoe UI Black", Font.ITALIC, 50));
+		titleAccount.setFont(new Font("Segoe UI Black", Font.BOLD, 50));
 		titleAccount.setForeground(Color.decode("#e0ca7c"));
 		titleAccount.setLocation(120, 20);
 		titleAccount.setSize(350, 70);
 		panel2.add(titleAccount);
 		
 		JLabel titleUsername = new JLabel("Enter Your Username", SwingConstants.CENTER);
-		titleUsername.setFont(new Font("Segoe UI Black", Font.ITALIC, 15));
+		titleUsername.setFont(new Font("Segoe UI Black", Font.BOLD, 15));
 		titleUsername.setForeground(Color.decode("#ffffff"));
 		titleUsername.setLocation(100, 110);
 		titleUsername.setSize(170, 30);
@@ -90,7 +92,7 @@ public class AuthView extends JFrame implements ActionListener{
 		panel2.add(userField);
 		
 		JLabel titlePassword = new JLabel("Enter Your Password", SwingConstants.CENTER);
-		titlePassword.setFont(new Font("Segoe UI Black", Font.ITALIC, 15));
+		titlePassword.setFont(new Font("Segoe UI Black", Font.BOLD, 15));
 		titlePassword.setForeground(Color.decode("#ffffff"));
 		titlePassword.setLocation(100, 210);
 		titlePassword.setSize(170, 30);
@@ -109,7 +111,7 @@ public class AuthView extends JFrame implements ActionListener{
 		panel2.add(passwordField);
 		
 		loginBtn = new JButton("Login");
-		loginBtn.setFont(new Font("Segoe UI Black", Font.ITALIC, 20));
+		loginBtn.setFont(new Font("Segoe UI Black", Font.BOLD, 20));
 		loginBtn.setBackground(Color.decode("#e9cc68"));
 		loginBtn.setSize(200, 50);
 		loginBtn.setLocation(200, 310);
@@ -123,7 +125,7 @@ public class AuthView extends JFrame implements ActionListener{
 		panel1.add(titleSignUp);
 		
 		signUpBtn = new JButton("Sign Up");
-		signUpBtn.setFont(new Font("Segoe UI Black", Font.ITALIC, 13));
+		signUpBtn.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
 		signUpBtn.setBackground(Color.decode("#e9cc68"));
 		signUpBtn.setLocation(300, 540);
 		signUpBtn.setSize(90, 40);
@@ -151,6 +153,16 @@ public class AuthView extends JFrame implements ActionListener{
 	        userField.setBorder(new LineBorder(Color.RED, 2));
 	        passwordField.setBorder(new LineBorder(Color.RED, 2));
 	    }
+	}
+	
+	public void clearFields() {
+	    userField.setText("");
+	    passwordField.setText("");
+	}
+	
+	public void clearBorderField() {
+		userField.setBorder(null);
+		passwordField.setBorder(null);
 	}
 
 	 public void messages(String message){
